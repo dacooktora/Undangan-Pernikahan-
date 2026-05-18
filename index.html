@@ -22,18 +22,7 @@
       overflow-x: hidden;
     }
 
-    /* Haze overlay global */
-    .global-haze {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 998;
-      background: radial-gradient(circle at center, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.15) 100%);
-      mix-blend-mode: overlay;
-    }
+    
 
     ::-webkit-scrollbar {
       width: 6px;
@@ -189,15 +178,29 @@
     }
     
     /* Overlay putih transparan (hazy/matte effect) DI ATAS foto prewedding */
-    .white-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.15);
-      z-index: 2;
-    }
+    /* Overlay putih ringan (tidak blur) */
+.white-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.03); /* ✅ dari 0.15 jadi 0.03 */
+  z-index: 2;
+}
+
+/* Haze global tanpa mix-blend-mode */
+.global-haze {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.05) 100%);
+  /* ✅ mix-blend-mode: overlay; (dihapus) */
+}
     
     /* Foto wayang DI ATAS overlay, dengan animasi masuk */
     .wayang-overlay {
@@ -206,7 +209,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('https://i.postimg.cc/PCdFJrBm');
+      background-image: url('https://i.postimg.cc/qvKfmNwZ/1000182956-removebg.png');
       background-size: cover;
       background-position: center;
       opacity: 0.65;
