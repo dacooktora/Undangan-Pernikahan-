@@ -4,10 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Undangan Pernikahan | Moody Editorial</title>
-  <!-- Google Fonts & Swiper.js -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <!-- Confetti library -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
   <style>
     * {
@@ -24,20 +22,19 @@
       overflow-x: hidden;
     }
 
-    /* Moody Matte/Hazy Overlay effect global */
-    .haze-overlay {
+    /* Haze overlay global */
+    .global-haze {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 999;
-      background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.2) 100%);
+      z-index: 998;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.15) 100%);
       mix-blend-mode: overlay;
     }
 
-    /* Custom scrollbar */
     ::-webkit-scrollbar {
       width: 6px;
     }
@@ -49,7 +46,6 @@
       border-radius: 10px;
     }
 
-    /* Typography */
     h1, h2, h3, .serif {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 500;
@@ -86,7 +82,6 @@
       margin: 0 auto;
     }
 
-    /* Button style */
     .btn-gold {
       background: transparent;
       border: 1px solid #D6B98C;
@@ -119,7 +114,6 @@
       justify-content: center;
       text-align: center;
       transition: opacity 1s ease, visibility 1s;
-      backdrop-filter: blur(0px);
     }
     .cover-content {
       max-width: 90%;
@@ -150,7 +144,7 @@
       pointer-events: none;
     }
 
-    /* Background video container */
+    /* Background video */
     .bg-video {
       position: fixed;
       top: 0;
@@ -159,7 +153,7 @@
       height: 100%;
       object-fit: cover;
       z-index: -2;
-      opacity: 0.5;
+      opacity: 0.4;
     }
     .bg-overlay-dark {
       position: fixed;
@@ -171,7 +165,7 @@
       z-index: -1;
     }
 
-    /* Hero Section (Home) dengan wayang background */
+    /* ========== HERO SECTION (HALAMAN PERTAMA) ========== */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -179,56 +173,81 @@
       justify-content: center;
       position: relative;
       overflow: hidden;
-      background: #111111;
     }
-    .wayang-bg {
+    
+    /* Foto prewedding FULL sebagai background hero */
+    .hero-bg-full {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('https://i.postimg.cc/PCdFJrBm'); /* GANTI: URL foto wayang */
+      background-image: url('https://i.postimg.cc/K1r98V7k/prewedding.jpg');
       background-size: cover;
       background-position: center;
-      opacity: 0.35;
-      filter: blur(3px) brightness(0.6);
-      transform: scale(1.05);
-      animation: slowZoom 20s infinite alternate;
       z-index: 1;
     }
-    @keyframes slowZoom {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.08); }
+    
+    /* Overlay putih transparan (hazy/matte effect) DI ATAS foto prewedding */
+    .white-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.15);
+      z-index: 2;
     }
+    
+    /* Foto wayang DI ATAS overlay, dengan animasi masuk */
+    .wayang-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://i.postimg.cc/PCdFJrBm');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.65;
+      z-index: 3;
+      animation: wayangFadeIn 1.8s ease-out forwards;
+      pointer-events: none;
+    }
+    
+    @keyframes wayangFadeIn {
+      0% {
+        opacity: 0;
+        transform: scale(1.1);
+      }
+      100% {
+        opacity: 0.65;
+        transform: scale(1);
+      }
+    }
+    
+    /* Konten teks di hero */
     .hero-content {
       position: relative;
-      z-index: 3;
+      z-index: 4;
       text-align: center;
       padding: 40px 20px;
-      background: rgba(17,17,17,0.5);
-      backdrop-filter: blur(5px);
-      border-radius: 20px;
       max-width: 90%;
       margin: 0 auto;
-      border: 1px solid rgba(255,255,255,0.1);
     }
-    .prewedding-img {
-      width: 280px;
-      height: 280px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid #D6B98C;
-      box-shadow: 0 20px 35px rgba(0,0,0,0.5);
-      margin-bottom: 30px;
-      transition: transform 0.3s;
-    }
-    .prewedding-img:hover {
-      transform: scale(1.02);
-    }
-    .hero h1 {
-      font-size: 2.8rem;
+    
+    .hero-content h1 {
+      font-size: 3rem;
       color: #F5F5F0;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      text-shadow: 0 2px 15px rgba(0,0,0,0.5);
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #EAE6DF;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.4);
     }
 
     /* Countdown */
@@ -254,12 +273,12 @@
       color: #EAE6DF;
     }
 
-    /* Galeri 3D Swiper dengan efek coverflow (3D) */
+    /* Galeri 3D - FOTO TAJAM */
     .gallery-3d {
       background: #0f0f0f;
       padding: 60px 0;
     }
-    .swiper-container {
+    .swiper {
       width: 100%;
       padding: 50px 0;
     }
@@ -273,13 +292,9 @@
     }
     .swiper-slide img {
       width: 100%;
-      height: 380px;
+      height: 420px;
       object-fit: cover;
       display: block;
-    }
-    .section-title-gallery {
-      text-align: center;
-      margin-bottom: 20px;
     }
     .gallery-tabs {
       display: flex;
@@ -291,7 +306,7 @@
       font-size: 1.4rem;
       font-family: 'Cormorant Garamond', serif;
       cursor: pointer;
-      padding: 8px 20px;
+      padding: 8px 30px;
       background: rgba(255,255,255,0.03);
       border-radius: 40px;
       transition: all 0.3s;
@@ -301,6 +316,10 @@
       background: #8C6A58;
       color: #F5F5F0;
       box-shadow: 0 0 12px rgba(140,106,88,0.5);
+    }
+    .section-title-gallery {
+      text-align: center;
+      margin-bottom: 20px;
     }
 
     /* Info acara */
@@ -318,7 +337,6 @@
       border-bottom: 1px dashed;
     }
 
-    /* RSVP & Amplop */
     .row-2col {
       display: flex;
       flex-wrap: wrap;
@@ -340,6 +358,7 @@
       margin-top: 10px;
       cursor: pointer;
       font-size: 0.8rem;
+      color: #D6B98C;
     }
     .buku-tamu {
       background: #1A1A1A;
@@ -352,8 +371,15 @@
       padding: 14px;
       border-radius: 16px;
     }
+    textarea, input {
+      background: #232323;
+      border: 1px solid #8C6A58;
+      color: #FFF;
+      padding: 12px;
+      border-radius: 8px;
+    }
 
-    /* Audio player */
+    /* Music player */
     .music-player {
       position: fixed;
       bottom: 20px;
@@ -367,31 +393,23 @@
       gap: 12px;
       align-items: center;
       border: 1px solid #D6B98C;
-    }
-    .music-btn {
       cursor: pointer;
-      font-size: 24px;
     }
 
     /* Responsive */
     @media (max-width: 768px) {
       .section { padding: 60px 16px; }
       .time-unit span { font-size: 1.8rem; }
-      .prewedding-img { width: 200px; height: 200px; }
-      .hero h1 { font-size: 2rem; }
-      .swiper-slide img { height: 260px; }
+      .hero-content h1 { font-size: 2rem; }
+      .swiper-slide img { height: 280px; }
     }
     @media (max-width: 480px) {
       .countdown-box { gap: 10px; }
       .time-unit { padding: 8px 12px; min-width: 65px; }
+      .time-unit span { font-size: 1.4rem; }
     }
 
-    /* Parallax effect simple */
-    .parallax-bg {
-      background-attachment: fixed;
-    }
-
-    /* 3D floating elements */
+    /* Floating 3D elements */
     .floating-3d {
       position: absolute;
       width: 120px;
@@ -422,28 +440,26 @@
   </div>
 </div>
 
-<!-- Background video sinematik (ganti dengan video kalian) -->
+<!-- Background video -->
 <video autoplay muted loop playsinline class="bg-video" id="bgVideo">
   <source src="https://assets.mixkit.co/videos/preview/mixkit-dust-and-speckles-on-dark-background-32802-large.mp4" type="video/mp4">
-  <!-- Ganti URL di atas dengan video kalian sendiri -->
 </video>
 <div class="bg-overlay-dark"></div>
-<div class="haze-overlay"></div>
+<div class="global-haze"></div>
 
-<!-- Floating 3D elements untuk efek -->
 <div class="floating-3d" style="top:10%; left:5%;"></div>
 <div class="floating-3d" style="bottom:20%; right:8%; width:200px; height:200px; animation-duration:18s;"></div>
 
 <main id="mainContent" style="display: none;">
 
-  <!-- Hero / Home dengan foto wayang & prewedding -->
-  <section class="hero section" style="padding-top: 100px;">
-    <div class="wayang-bg" id="wayangBg"></div>
+  <!-- HERO / HALAMAN PERTAMA: foto prewedding full + overlay putih + wayang di atas -->
+  <section class="hero">
+    <div class="hero-bg-full"></div>
+    <div class="white-overlay"></div>
+    <div class="wayang-overlay"></div>
     <div class="hero-content">
-      <img class="prewedding-img" src="https://i.postimg.cc/K1r98V7k/prewedding.jpg" alt="Prewedding" id="preweddingImg" 
-           onerror="this.src='https://placehold.co/400x400/232323/D6B98C?text=Foto+Prewedding';">
       <h1 class="serif" id="dynamicGreeting">Halo, Selamat Datang</h1>
-      <p style="margin-top: 16px; font-style: italic; color:#C9A46A;">"Two souls, one journey"</p>
+      <p style="margin-top: 16px; font-style: italic; color:#D6B98C;">"Dua hati, satu cinta"</p>
     </div>
   </section>
 
@@ -468,32 +484,30 @@
         <p><strong>📅 Tanggal:</strong> 12 Juli 2026</p>
         <p><strong>🕌 Akad Nikah:</strong> 09.00 WIB - Selesai</p>
         <p><strong>🍽️ Resepsi:</strong> 11.00 WIB - 15.00 WIB</p>
-        <p><strong>📍 Lokasi:</strong> Gedung Serbaguna, Jl. Contoh No.123 (Lokasi Strategis)</p>
+        <p><strong>📍 Lokasi:</strong> Gedung Serbaguna, Jl. Contoh No.123</p>
         <a href="https://maps.app.goo.gl/9wLYRi3Q8TVBJaY56" target="_blank" class="maps-link">📌 Buka Google Maps →</a>
       </div>
     </div>
   </section>
 
-  <!-- GALERI 3D DENGAN 2 SECTION (Baju Merah & Hitam) + Efek swiper 3D -->
+  <!-- GALERI 3D - 2 SECTION (Baju Hitam & Merah) -->
   <section class="gallery-3d section">
     <div class="container">
       <div class="section-title-gallery">
-        <h2>Our Journey</h2>
+        <h2>Our Gallery</h2>
         <p style="color:#BEBEBE;">Geser untuk melihat momen spesial</p>
       </div>
       <div class="gallery-tabs">
         <div class="gallery-tab active" data-tab="black">⚫ Baju Hitam</div>
         <div class="gallery-tab" data-tab="red">🔴 Baju Merah</div>
       </div>
-      <!-- Swiper Black -->
-      <div class="swiper-container swiper-black" id="swiperBlack">
+      <div class="swiper swiper-black" id="swiperBlack">
         <div class="swiper-wrapper" id="blackWrapper"></div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
       </div>
-      <!-- Swiper Red -->
-      <div class="swiper-container swiper-red" id="swiperRed" style="display:none;">
+      <div class="swiper swiper-red" id="swiperRed" style="display:none;">
         <div class="swiper-wrapper" id="redWrapper"></div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-next"></div>
@@ -509,7 +523,7 @@
       <div class="row-2col">
         <div class="col">
           <h3>💌 RSVP</h3>
-          <p>Klik tombol di bawah untuk mengirim konfirmasi via WhatsApp</p>
+          <p>Klik tombol di bawah untuk konfirmasi via WhatsApp</p>
           <button class="btn-gold" id="rsvpBtn" style="margin-top: 20px;">Konfirmasi Sekarang</button>
         </div>
         <div class="col">
@@ -518,20 +532,19 @@
           <div style="margin: 15px 0;">
             <p><strong>💰 Dana:</strong> 089506446413 <button class="copy-btn" data-copy="089506446413">Salin</button></p>
             <p><strong>🏦 BCA:</strong> 2618262927 a.n. Pasangan <button class="copy-btn" data-copy="2618262927">Salin</button></p>
-            <p><em>QRIS tersedia di hari H (akan diupdate)</em></p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Buku Tamu + Ucapan -->
+  <!-- Buku Tamu -->
   <section class="section">
     <div class="container">
       <h2>Buku Tamu & Ucapan</h2>
       <div class="buku-tamu">
-        <textarea id="guestMsg" rows="2" placeholder="Tulis ucapan selamat & doa..." style="width:100%; background:#232323; border:1px solid #8C6A58; color:#FFF; padding:12px;"></textarea>
-        <input type="text" id="guestNameBook" placeholder="Nama Anda" style="width:100%; margin: 10px 0; background:#232323; border:1px solid #8C6A58; padding:10px; color:#FFF;">
+        <textarea id="guestMsg" rows="2" placeholder="Tulis ucapan selamat & doa..." style="width:100%;"></textarea>
+        <input type="text" id="guestNameBook" placeholder="Nama Anda" style="width:100%; margin: 10px 0;">
         <button class="btn-gold" id="postUcapanBtn">Kirim Ucapan</button>
         <div id="guestbookList" style="margin-top: 30px; max-height: 300px; overflow-y: auto;"></div>
       </div>
@@ -539,20 +552,19 @@
   </section>
 </main>
 
-<!-- Audio Player -->
-<div class="music-player">
-  <span class="music-btn" id="playPauseMusic">🔊</span>
-  <audio id="bgAudio" loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-    <!-- Ganti dengan lagu pilihan Anda -->
-  </audio>
+<!-- Music Player -->
+<div class="music-player" id="musicPlayer">
+  <span id="playPauseMusic">🔊</span>
+  <span style="font-size:12px;">Music</span>
 </div>
+<audio id="bgAudio" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
   (function() {
-    // ---------------------- DATA GALERI (Baju Hitam & Merah) ----------------------
-    // Daftar URL dari postimg (ganti jika perlu)
+    // ========== DATA GALERI ==========
     const hitamImages = [
       "https://i.postimg.cc/gxqM25y8/Baju-Hitam.jpg",
       "https://i.postimg.cc/7GbXXZFF/Baju-Hitam.jpg",
@@ -571,10 +583,10 @@
       "https://i.postimg.cc/DSMSLfc0/Baju-Merah.jpg",
       "https://i.postimg.cc/5HKSHMXs/Baju-Merah.jpg"
     ];
-    
+
     function buildSwiper(containerId, imagesArray) {
       const wrapper = document.querySelector(containerId + ' .swiper-wrapper');
-      if(!wrapper) return;
+      if (!wrapper) return null;
       wrapper.innerHTML = '';
       imagesArray.forEach(imgUrl => {
         const slide = document.createElement('div');
@@ -607,59 +619,53 @@
         }
       });
     }
-    
-    let swiperBlackInstance = null;
-    let swiperRedInstance = null;
-    
-    // Tab logic
+
+    let swiperBlack, swiperRed;
     const tabBlack = document.querySelector('[data-tab="black"]');
     const tabRed = document.querySelector('[data-tab="red"]');
     const swiperBlackDiv = document.getElementById('swiperBlack');
     const swiperRedDiv = document.getElementById('swiperRed');
-    
+
     function initSwipers() {
-      if(swiperBlackInstance) swiperBlackInstance.destroy(true, true);
-      if(swiperRedInstance) swiperRedInstance.destroy(true, true);
-      swiperBlackInstance = buildSwiper('#swiperBlack', hitamImages);
-      swiperRedInstance = buildSwiper('#swiperRed', merahImages);
+      if (swiperBlack) swiperBlack.destroy(true, true);
+      if (swiperRed) swiperRed.destroy(true, true);
+      swiperBlack = buildSwiper('#swiperBlack', hitamImages);
+      swiperRed = buildSwiper('#swiperRed', merahImages);
     }
-    
+
     tabBlack.addEventListener('click', () => {
       tabBlack.classList.add('active');
       tabRed.classList.remove('active');
       swiperBlackDiv.style.display = 'block';
       swiperRedDiv.style.display = 'none';
-      setTimeout(() => swiperBlackInstance && swiperBlackInstance.update(), 100);
+      setTimeout(() => swiperBlack && swiperBlack.update(), 100);
     });
     tabRed.addEventListener('click', () => {
       tabRed.classList.add('active');
       tabBlack.classList.remove('active');
       swiperBlackDiv.style.display = 'none';
       swiperRedDiv.style.display = 'block';
-      setTimeout(() => swiperRedInstance && swiperRedInstance.update(), 100);
+      setTimeout(() => swiperRed && swiperRed.update(), 100);
     });
-    
-    // ---------------------- COVER & NAMA TAMU ----------------------
+
+    // ========== COVER & NAMA TAMU ==========
     const cover = document.getElementById('coverScreen');
     const openBtn = document.getElementById('openInvBtn');
     const mainContent = document.getElementById('mainContent');
     const guestInput = document.getElementById('guestNameInput');
     const dynamicGreeting = document.getElementById('dynamicGreeting');
     let guestName = '';
-    
+
     function getUrlParam(param) {
       const urlParams = new URLSearchParams(window.location.search);
       return urlParams.get(param);
     }
-    
     const urlName = getUrlParam('nama');
-    if(urlName) {
-      guestInput.value = urlName;
-    }
-    
+    if (urlName) guestInput.value = urlName;
+
     openBtn.addEventListener('click', () => {
       let nama = guestInput.value.trim();
-      if(nama === "") nama = "Tamu Undangan";
+      if (nama === "") nama = "Tamu Undangan";
       guestName = nama;
       localStorage.setItem('wedding_guest', nama);
       dynamicGreeting.innerText = `Halo, ${nama} ✨`;
@@ -667,47 +673,45 @@
       setTimeout(() => {
         cover.style.display = 'none';
         mainContent.style.display = 'block';
-        // Confetti spektakuler
         canvasConfetti({ particleCount: 200, spread: 100, origin: { y: 0.6 }, colors: ['#D6B98C', '#EAE6DF', '#8C6A58'] });
-        canvasConfetti({ particleCount: 100, spread: 130, origin: { y: 0.8, x: 0.3 }, startVelocity: 20 });
-        // Music mulai
+        canvasConfetti({ particleCount: 100, spread: 130, origin: { y: 0.8, x: 0.3 } });
         let audio = document.getElementById('bgAudio');
-        audio.play().catch(e => console.log("Autoplay diblokir, klik play manual"));
+        audio.play().catch(e => console.log("Autoplay diblokir"));
       }, 300);
     });
-    
-    // Countdown ke 12 Juli 2026
+
+    // ========== COUNTDOWN ==========
     function updateCountdown() {
-      const target = new Date(2026, 6, 12, 9, 0, 0); // 12 Juli 2026 jam 09:00
+      const target = new Date(2026, 6, 12, 9, 0, 0);
       const now = new Date();
       const diff = target - now;
-      if(diff <= 0) {
+      if (diff <= 0) {
         document.getElementById('days').innerText = '00';
         document.getElementById('hours').innerText = '00';
         document.getElementById('minutes').innerText = '00';
         document.getElementById('seconds').innerText = '00';
         return;
       }
-      const days = Math.floor(diff / (1000*60*60*24));
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff % (86400000)) / (3600000));
       const mins = Math.floor((diff % 3600000) / 60000);
       const secs = Math.floor((diff % 60000) / 1000);
-      document.getElementById('days').innerText = days < 10 ? '0'+days : days;
-      document.getElementById('hours').innerText = hours < 10 ? '0'+hours : hours;
-      document.getElementById('minutes').innerText = mins < 10 ? '0'+mins : mins;
-      document.getElementById('seconds').innerText = secs < 10 ? '0'+secs : secs;
+      document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+      document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+      document.getElementById('minutes').innerText = mins < 10 ? '0' + mins : mins;
+      document.getElementById('seconds').innerText = secs < 10 ? '0' + secs : secs;
     }
     setInterval(updateCountdown, 1000);
     updateCountdown();
-    
-    // RSVP WhatsApp
+
+    // ========== RSVP ==========
     document.getElementById('rsvpBtn').addEventListener('click', () => {
       let nama = guestName || localStorage.getItem('wedding_guest') || 'Tamu';
       let waMsg = `Halo, saya ${nama} ingin mengkonfirmasi kehadiran di pernikahan.`;
       window.open(`https://wa.me/6289506446413?text=${encodeURIComponent(waMsg)}`, '_blank');
     });
-    
-    // Copy rekening
+
+    // ========== COPY REKENING ==========
     document.querySelectorAll('.copy-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const text = btn.getAttribute('data-copy');
@@ -716,12 +720,12 @@
         setTimeout(() => btn.innerText = 'Salin', 1500);
       });
     });
-    
-    // BUKU TAMU LOCALSTORAGE
+
+    // ========== BUKU TAMU ==========
     let guestbook = JSON.parse(localStorage.getItem('wedding_guestbook')) || [];
     function renderGuestbook() {
       const container = document.getElementById('guestbookList');
-      if(!container) return;
+      if (!container) return;
       container.innerHTML = '';
       guestbook.slice().reverse().forEach(entry => {
         const div = document.createElement('div');
@@ -732,16 +736,16 @@
     }
     function escapeHtml(str) {
       return str.replace(/[&<>]/g, function(m) {
-        if(m === '&') return '&amp;';
-        if(m === '<') return '&lt;';
-        if(m === '>') return '&gt;';
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
         return m;
       });
     }
     document.getElementById('postUcapanBtn')?.addEventListener('click', () => {
       const msg = document.getElementById('guestMsg').value.trim();
       const name = document.getElementById('guestNameBook').value.trim() || guestName || 'Anonymous';
-      if(msg === "") return;
+      if (msg === "") return;
       guestbook.push({ name: name, message: msg, date: new Date().toISOString() });
       localStorage.setItem('wedding_guestbook', JSON.stringify(guestbook));
       renderGuestbook();
@@ -749,46 +753,26 @@
       document.getElementById('guestNameBook').value = '';
     });
     renderGuestbook();
-    
-    // Music Player
+
+    // ========== MUSIC PLAYER ==========
     const audioPlayer = document.getElementById('bgAudio');
     const playBtn = document.getElementById('playPauseMusic');
     let isPlaying = false;
     playBtn.addEventListener('click', () => {
-      if(isPlaying) {
+      if (isPlaying) {
         audioPlayer.pause();
         playBtn.innerHTML = '🔇';
       } else {
-        audioPlayer.play().catch(e=>console.log);
+        audioPlayer.play().catch(e => console.log);
         playBtn.innerHTML = '🔊';
       }
       isPlaying = !isPlaying;
     });
-    
-    // Animasi tambahan: efek parallax sederhana (window scroll)
-    window.addEventListener('scroll', () => {
-      const scrolled = window.scrollY;
-      const wayang = document.querySelector('.wayang-bg');
-      if(wayang) wayang.style.transform = `scale(1.05) translateY(${scrolled * 0.1}px)`;
-    });
-    
-    // Inisialisasi galeri setelah DOM
+
+    // Inisialisasi galeri
     initSwipers();
-    // menampilkan section merah/hitam default black
     swiperBlackDiv.style.display = 'block';
     swiperRedDiv.style.display = 'none';
-    
-    // Untuk gambar wayang dan prewedding, jika link tidak valid tampilkan placeholder, user bisa ganti manual di kode.
-    // Pastikan background wayang animasi sudah aktif
-    const wayangDiv = document.querySelector('.wayang-bg');
-    if(wayangDiv) {
-      wayangDiv.style.backgroundImage = "url('https://i.postimg.cc/PCdFJrBm')";
-      wayangDiv.style.backgroundSize = 'cover';
-    }
-    const prewedImg = document.getElementById('preweddingImg');
-    if(prewedImg) prewedImg.src = "https://i.postimg.cc/K1r98V7k/prewedding.jpg";
-    
-    // Jika ingin lebih 3D - tambahan efek tilt pada hero? opsional
   })();
 </script>
 </body>
