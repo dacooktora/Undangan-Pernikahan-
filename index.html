@@ -1,770 +1,723 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Resa & Delia | Wedding Invitation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Resa & Delia | Wedding Invitation</title>
+  <!-- Google Fonts Elegant -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700;800&family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: #0a0806;
-            color: #e8e0d3;
-            scroll-behavior: smooth;
-        }
+    body {
+      background-color: #111111;  /* Dark white premium base */
+      color: #F5F5F0;             /* soft white utama */
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+      line-height: 1.5;
+    }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 5px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1a1714;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #9e8b6f;
-            border-radius: 10px;
-        }
+    /* custom scroll */
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1e1e1e;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #C98C9E;
+      border-radius: 10px;
+    }
 
-        /* Floating Music */
-        .music-floating {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            z-index: 1000;
-            width: 52px;
-            height: 52px;
-            background: rgba(20,18,16,0.85);
-            backdrop-filter: blur(12px);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            border: 1px solid rgba(158,139,111,0.5);
-            transition: all 0.3s;
-        }
-        .music-floating i {
-            font-size: 1.4rem;
-            color: #9e8b6f;
-        }
-        .music-floating.playing i {
-            animation: spinMusic 3s linear infinite;
-        }
-        @keyframes spinMusic {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+    /* music floating button premium */
+    .music-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 1000;
+      width: 54px;
+      height: 54px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 60px;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    .music-float i {
+      font-size: 1.4rem;
+      color: #E8D7A9;
+    }
+    .music-float.playing i {
+      animation: vinylSpin 3s linear infinite;
+    }
+    @keyframes vinylSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
 
-        /* HERO SECTION - DARK ELEGANCE */
-        .hero {
-            position: relative;
-            height: 100vh;
-            background: url('https://i.postimg.cc/K1r98V7k/Baju-Hitam.jpg');
-            background-size: cover;
-            background-position: center 40%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
+    /* Hero with your photo */
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: linear-gradient(0deg, rgba(17,17,17,0.75), rgba(17,17,17,0.65)), url('https://i.postimg.cc/K1r98V7k/Baju-Hitam.jpg');
+      background-size: cover;
+      background-position: center 35%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
 
-        /* Blur putih/abu di ATAS */
-        .hero-overlay-top {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 30%;
-            background: linear-gradient(180deg, rgba(10,8,6,0.9) 0%, rgba(10,8,6,0.6) 50%, rgba(10,8,6,0) 100%);
-            backdrop-filter: blur(8px);
-            pointer-events: none;
-        }
+    /* luxury blur top & bottom (soft white to transparent) */
+    .hero-blur-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 32%;
+      background: linear-gradient(180deg, #111111 0%, rgba(17,17,17,0.7) 60%, transparent 100%);
+      backdrop-filter: blur(12px);
+      pointer-events: none;
+    }
+    .hero-blur-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 32%;
+      background: linear-gradient(0deg, #111111 0%, rgba(17,17,17,0.7) 60%, transparent 100%);
+      backdrop-filter: blur(12px);
+      pointer-events: none;
+    }
 
-        /* Blur putih/abu di BAWAH */
-        .hero-overlay-bottom {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 30%;
-            background: linear-gradient(0deg, rgba(10,8,6,0.9) 0%, rgba(10,8,6,0.6) 50%, rgba(10,8,6,0) 100%);
-            backdrop-filter: blur(8px);
-            pointer-events: none;
-        }
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 90%;
+    }
+    .hero-suptitle {
+      font-size: 0.7rem;
+      letter-spacing: 5px;
+      color: #E8D7A9;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 9vw, 5rem);
+      font-weight: 600;
+      color: #FFFFFF;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    }
+    .hero-divider {
+      width: 64px;
+      height: 1px;
+      background: rgba(255,255,255,0.35);
+      margin: 28px auto;
+    }
+    .hero-date {
+      font-size: 1rem;
+      letter-spacing: 3px;
+      font-weight: 300;
+      color: #F5F5F0;
+    }
+    .scroll-down {
+      position: absolute;
+      bottom: 30px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      cursor: pointer;
+      color: #CFCFCF;
+      font-size: 0.8rem;
+      transition: 0.2s;
+      z-index: 10;
+    }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 85%;
-            padding: 20px;
-        }
+    /* container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-        .hero-suptitle {
-            font-size: 0.7rem;
-            letter-spacing: 5px;
-            color: #c4b59b;
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
+    /* section styling */
+    .section {
+      padding: 90px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .section-tag {
+      font-size: 0.65rem;
+      letter-spacing: 4px;
+      color: #D6A77A;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: #FFFFFF;
+    }
 
-        .hero-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            font-weight: 600;
-            letter-spacing: 2px;
-            line-height: 1.2;
-            color: #f5efE6;
-        }
+    /* glassmorphic card */
+    .glass-card {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 28px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+      transition: all 0.25s ease;
+    }
+    .glass-card:hover {
+      border-color: rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.1);
+    }
 
-        .hero-divider {
-            width: 60px;
-            height: 1px;
-            background: #9e8b6f;
-            margin: 28px auto;
-        }
+    /* info grid */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+    .info-card {
+      padding: 36px 20px;
+      text-align: center;
+    }
+    .info-icon {
+      font-size: 2.2rem;
+      color: #C98C9E;
+      margin-bottom: 18px;
+    }
+    .info-card h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .info-time {
+      font-size: 0.8rem;
+      color: #E8D7A9;
+      margin-top: 12px;
+    }
+    .map-link {
+      display: inline-block;
+      margin-top: 18px;
+      color: #D6A77A;
+      font-size: 0.7rem;
+      text-decoration: none;
+      border-bottom: 1px dotted #D6A77A;
+      cursor: pointer;
+    }
 
-        .hero-date {
-            font-size: 1rem;
-            letter-spacing: 3px;
-            font-weight: 300;
-        }
+    /* countdown */
+    .countdown-wrapper {
+      padding: 48px 20px;
+      text-align: center;
+    }
+    .countdown-flex {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+    .cd-item {
+      min-width: 85px;
+    }
+    .cd-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #F3E9DC;
+      background: rgba(0,0,0,0.35);
+      padding: 12px 0;
+      border-radius: 60px;
+    }
+    .cd-label {
+      font-size: 0.7rem;
+      margin-top: 10px;
+      letter-spacing: 1px;
+      opacity: 0.7;
+    }
 
-        .scroll-indicator {
-            position: absolute;
-            bottom: 35px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            z-index: 10;
-            cursor: pointer;
-            color: #c4b59b;
-            font-size: 0.8rem;
-            transition: 0.2s;
-        }
+    /* gallery grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 26px;
+    }
+    .gallery-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: 0.3s;
+    }
+    .gallery-img:hover {
+      transform: scale(1.02);
+      border-color: #C98C9E;
+    }
 
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+    /* form double */
+    .double-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+    }
+    .form-card {
+      padding: 38px 30px;
+    }
+    .form-card h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+      color: #E8D7A9;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 14px 18px;
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 44px;
+      color: #F5F5F0;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.8rem;
+      margin-bottom: 18px;
+      transition: 0.2s;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #D6A77A;
+    }
+    .btn-elegant {
+      background: linear-gradient(135deg, #C98C9E, #D6A77A);
+      border: none;
+      padding: 12px 20px;
+      border-radius: 50px;
+      color: #111111;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      font-size: 0.8rem;
+      transition: 0.2s;
+      font-family: 'Poppins', sans-serif;
+    }
+    .btn-elegant:hover {
+      transform: scale(1.01);
+      background: linear-gradient(135deg, #D6A77A, #C98C9E);
+    }
 
-        /* Sections */
-        .section {
-            padding: 80px 0;
-            border-bottom: 1px solid rgba(158,139,111,0.15);
-        }
+    /* guestbook list */
+    .guestbook-list {
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .guest-item {
+      background: rgba(255,255,255,0.05);
+      border-radius: 24px;
+      padding: 20px 24px;
+      border-left: 4px solid #C98C9E;
+    }
+    .guest-name {
+      font-weight: 600;
+      color: #E8D7A9;
+      margin-bottom: 6px;
+    }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 56px;
-        }
+    /* donation & live */
+    .simple-card {
+      padding: 52px 28px;
+      text-align: center;
+    }
+    .donation-number {
+      font-size: 1.6rem;
+      letter-spacing: 2px;
+      background: rgba(0,0,0,0.6);
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 60px;
+      margin: 24px 0;
+      font-weight: 500;
+      color: #F3E9DC;
+    }
 
-        .section-tag {
-            font-size: 0.65rem;
-            letter-spacing: 4px;
-            color: #9e8b6f;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-        }
+    /* modal map */
+    .modal-map {
+      display: none;
+      position: fixed;
+      top:0;left:0;
+      width:100%;height:100%;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(10px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-inner {
+      width: 90%;
+      max-width: 800px;
+      height: 60%;
+      background: #111;
+      border-radius: 32px;
+      position: relative;
+      padding: 16px;
+    }
+    .modal-inner iframe {
+      width: 100%;
+      height: 100%;
+      border-radius: 24px;
+    }
+    .close-modal {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #D6A77A;
+    }
 
-        .section-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            font-weight: 500;
-            color: #f2e8da;
-        }
+    .toast {
+      position: fixed;
+      bottom: 100px;
+      right: 28px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(16px);
+      color: #F5F5F0;
+      padding: 10px 24px;
+      border-radius: 40px;
+      opacity: 0;
+      transition: 0.2s;
+      z-index: 999;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
 
-        /* Info Cards */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
-        }
+    footer {
+      text-align: center;
+      padding: 50px 20px 40px;
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      opacity: 0.6;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
 
-        .info-card {
-            background: rgba(25,22,19,0.6);
-            backdrop-filter: blur(4px);
-            border-radius: 32px;
-            padding: 32px 20px;
-            text-align: center;
-            border: 1px solid rgba(158,139,111,0.2);
-            transition: 0.25s;
-        }
-
-        .info-card:hover {
-            border-color: rgba(158,139,111,0.6);
-            transform: translateY(-5px);
-        }
-
-        .info-icon {
-            font-size: 2rem;
-            color: #9e8b6f;
-            margin-bottom: 18px;
-        }
-
-        .info-card h3 {
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 8px;
-        }
-
-        .info-time {
-            font-size: 0.8rem;
-            color: #9e8b6f;
-            margin-top: 12px;
-        }
-
-        .map-link {
-            display: inline-block;
-            margin-top: 16px;
-            color: #9e8b6f;
-            font-size: 0.7rem;
-            text-decoration: none;
-            border-bottom: 1px dotted #9e8b6f;
-            cursor: pointer;
-        }
-
-        /* Countdown */
-        .countdown-card {
-            background: rgba(20,18,16,0.5);
-            backdrop-filter: blur(4px);
-            border-radius: 48px;
-            padding: 48px 20px;
-            text-align: center;
-            border: 1px solid rgba(158,139,111,0.2);
-        }
-
-        .countdown-flex {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        .cd-item {
-            min-width: 80px;
-        }
-
-        .cd-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            font-weight: 600;
-            color: #c4b59b;
-            background: rgba(0,0,0,0.4);
-            padding: 12px 0;
-            border-radius: 28px;
-        }
-
-        .cd-label {
-            font-size: 0.65rem;
-            margin-top: 10px;
-            letter-spacing: 1px;
-            opacity: 0.7;
-        }
-
-        /* Gallery */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-        }
-
-        .gallery-img {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            border-radius: 28px;
-            transition: 0.35s;
-            cursor: pointer;
-            border: 1px solid rgba(158,139,111,0.2);
-        }
-
-        .gallery-img:hover {
-            transform: scale(1.02);
-            border-color: #9e8b6f;
-        }
-
-        /* Form Double */
-        .double-form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-        }
-
-        .form-card {
-            background: rgba(25,22,19,0.6);
-            backdrop-filter: blur(4px);
-            border-radius: 32px;
-            padding: 34px 28px;
-            border: 1px solid rgba(158,139,111,0.2);
-        }
-
-        .form-card h3 {
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 24px;
-            color: #c4b59b;
-        }
-
-        input, select, textarea {
-            width: 100%;
-            padding: 14px 18px;
-            background: #141210;
-            border: 1px solid #2e2a26;
-            border-radius: 34px;
-            color: #e8e0d3;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.8rem;
-            margin-bottom: 18px;
-            transition: 0.2s;
-        }
-
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: #9e8b6f;
-        }
-
-        .btn-elegant {
-            background: #9e8b6f;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 40px;
-            color: #0a0806;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            font-size: 0.8rem;
-            transition: 0.2s;
-        }
-
-        .btn-elegant:hover {
-            background: #b8a588;
-            transform: scale(1.01);
-        }
-
-        /* Guestbook */
-        .guestbook-list {
-            margin-top: 45px;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .guest-item {
-            background: rgba(20,18,16,0.6);
-            border-radius: 20px;
-            padding: 18px 24px;
-            border-left: 3px solid #9e8b6f;
-        }
-
-        .guest-name {
-            font-weight: 600;
-            color: #c4b59b;
-            margin-bottom: 6px;
-            font-size: 0.85rem;
-        }
-
-        /* Donation & Live */
-        .simple-card {
-            background: rgba(25,22,19,0.6);
-            backdrop-filter: blur(4px);
-            border-radius: 40px;
-            padding: 52px 28px;
-            text-align: center;
-            border: 1px solid rgba(158,139,111,0.2);
-        }
-
-        .donation-number {
-            font-size: 1.5rem;
-            letter-spacing: 2px;
-            background: #141210;
-            display: inline-block;
-            padding: 12px 28px;
-            border-radius: 60px;
-            margin: 24px 0;
-            font-weight: 500;
-            color: #c4b59b;
-        }
-
-        /* Modal Map */
-        .modal-map {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-inner {
-            width: 90%;
-            max-width: 800px;
-            height: 60%;
-            background: #0a0806;
-            border-radius: 32px;
-            position: relative;
-            padding: 16px;
-        }
-
-        .modal-inner iframe {
-            width: 100%;
-            height: 100%;
-            border-radius: 24px;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: #9e8b6f;
-        }
-
-        /* Toast */
-        .toast-notif {
-            position: fixed;
-            bottom: 100px;
-            right: 25px;
-            background: #9e8b6f;
-            color: #0a0806;
-            padding: 10px 22px;
-            border-radius: 40px;
-            font-weight: 500;
-            opacity: 0;
-            transition: 0.2s;
-            z-index: 999;
-            font-size: 0.8rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 50px 20px 35px;
-            font-size: 0.7rem;
-            letter-spacing: 1px;
-            opacity: 0.5;
-            border-top: 1px solid rgba(158,139,111,0.1);
-        }
-
-        @media (max-width: 760px) {
-            .double-form {
-                grid-template-columns: 1fr;
-                gap: 28px;
-            }
-            .section {
-                padding: 60px 0;
-            }
-            .cd-number {
-                font-size: 1.3rem;
-                padding: 8px 0;
-            }
-            .cd-item {
-                min-width: 60px;
-            }
-            .countdown-flex {
-                gap: 20px;
-            }
-        }
-    </style>
+    @media (max-width: 760px) {
+      .double-form {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .section {
+        padding: 60px 0;
+      }
+      .countdown-flex {
+        gap: 24px;
+      }
+      .cd-number {
+        font-size: 1.4rem;
+        padding: 8px 0;
+        min-width: 65px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<div class="music-floating" id="musicToggle">
-    <i class="fas fa-headphones"></i>
+<div class="music-float" id="musicToggle">
+  <i class="fas fa-headphones"></i>
 </div>
-<audio id="bgWedding" loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg">
+<audio id="bgMusic" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
 </audio>
 
-<!-- HERO dengan blur atas & bawah -->
+<!-- Hero dengan blur glass putih di atas & bawah -->
 <div class="hero" id="home">
-    <div class="hero-overlay-top"></div>
-    <div class="hero-overlay-bottom"></div>
-    <div class="hero-content">
-        <div class="hero-suptitle">THE WEDDING OF</div>
-        <h1 class="hero-title">Resa <span style="font-weight:300">&</span> Delia</h1>
-        <div class="hero-divider"></div>
-        <div class="hero-date">12 Juli 2026</div>
-    </div>
-    <div class="scroll-indicator" onclick="document.getElementById('info-acara').scrollIntoView({behavior:'smooth'})">
-        <i class="fas fa-chevron-down"></i>
-    </div>
+  <div class="hero-blur-top"></div>
+  <div class="hero-blur-bottom"></div>
+  <div class="hero-content">
+    <div class="hero-suptitle">THE WEDDING OF</div>
+    <h1 class="hero-title">Resa <span style="font-weight:300">&</span> Delia</h1>
+    <div class="hero-divider"></div>
+    <div class="hero-date">12 Juli 2026</div>
+  </div>
+  <div class="scroll-down" onclick="document.getElementById('acara').scrollIntoView({behavior:'smooth'})">
+    <i class="fas fa-chevron-down"></i>
+  </div>
 </div>
 
-<!-- Info Acara -->
-<section id="info-acara" class="section">
-    <div class="container">
-        <div class="section-header">
-            <div class="section-tag">SAAT ISTIMEWA</div>
-            <h2 class="section-title">Rangkaian Acara</h2>
-        </div>
-        <div class="info-grid">
-            <div class="info-card">
-                <div class="info-icon"><i class="fas fa-ring"></i></div>
-                <h3>Akad Nikah</h3>
-                <p>09.00 WIB</p>
-                <div class="info-time">📍 Aula Utama</div>
-            </div>
-            <div class="info-card">
-                <div class="info-icon"><i class="fas fa-glass-cheers"></i></div>
-                <h3>Resepsi</h3>
-                <p>11.00 WIB</p>
-                <div class="info-time">📍 Balai Pertemuan</div>
-            </div>
-            <div class="info-card">
-                <div class="info-icon"><i class="fas fa-location-dot"></i></div>
-                <h3>Lokasi</h3>
-                <p>Gedung Serbaguna, Kota</p>
-                <div class="map-link" onclick="openMapModal()"><i class="fas fa-map-marked-alt"></i> Buka Google Maps</div>
-            </div>
-        </div>
+<!-- Informasi Acara -->
+<section id="acara" class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">SAAT ISTIMEWA</div>
+      <h2 class="section-title">Rangkaian Acara</h2>
     </div>
+    <div class="info-grid">
+      <div class="glass-card info-card">
+        <div class="info-icon"><i class="fas fa-ring"></i></div>
+        <h3>Akad Nikah</h3>
+        <p>09.00 WIB</p>
+        <div class="info-time">📍 Aula Utama</div>
+      </div>
+      <div class="glass-card info-card">
+        <div class="info-icon"><i class="fas fa-glass-cheers"></i></div>
+        <h3>Resepsi</h3>
+        <p>11.00 WIB</p>
+        <div class="info-time">📍 Balai Pertemuan</div>
+      </div>
+      <div class="glass-card info-card">
+        <div class="info-icon"><i class="fas fa-location-dot"></i></div>
+        <h3>Lokasi</h3>
+        <p>Gedung Serbaguna, Kota</p>
+        <div class="map-link" onclick="openMapModal()"><i class="fas fa-map-marked-alt"></i> Buka Google Maps</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- Countdown -->
 <section class="section">
-    <div class="container">
-        <div class="countdown-card">
-            <div class="section-tag">MENUJU HARI H</div>
-            <div class="countdown-flex" id="countdownDisplay">
-                <div class="cd-item"><div class="cd-number" id="cdDays">00</div><div class="cd-label">Hari</div></div>
-                <div class="cd-item"><div class="cd-number" id="cdHours">00</div><div class="cd-label">Jam</div></div>
-                <div class="cd-item"><div class="cd-number" id="cdMinutes">00</div><div class="cd-label">Menit</div></div>
-                <div class="cd-item"><div class="cd-number" id="cdSeconds">00</div><div class="cd-label">Detik</div></div>
-            </div>
-        </div>
+  <div class="container">
+    <div class="glass-card countdown-wrapper">
+      <div class="section-tag">MENUJU HARI H</div>
+      <div class="countdown-flex" id="countdownArea">
+        <div class="cd-item"><div class="cd-number" id="days">00</div><div class="cd-label">Hari</div></div>
+        <div class="cd-item"><div class="cd-number" id="hours">00</div><div class="cd-label">Jam</div></div>
+        <div class="cd-item"><div class="cd-number" id="minutes">00</div><div class="cd-label">Menit</div></div>
+        <div class="cd-item"><div class="cd-number" id="seconds">00</div><div class="cd-label">Detik</div></div>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- Galeri Foto (pakai foto yang sudah dikirim) -->
+<!-- Galeri Foto (4 foto dengan link yang sudah dikirim) -->
 <section class="section">
-    <div class="container">
-        <div class="section-header">
-            <div class="section-tag">GALERI</div>
-            <h2 class="section-title">Kenangan Terindah</h2>
-        </div>
-        <div class="gallery-grid" id="galleryContainer">
-            <img class="gallery-img" src="https://i.postimg.cc/xXSxYYmj/Baju-Hitam.jpg" alt="Gallery 1">
-            <img class="gallery-img" src="https://i.postimg.cc/hXqyggm9/Baju-Hitam.jpg" alt="Gallery 2">
-            <img class="gallery-img" src="https://i.postimg.cc/FYBY3FxK/Baju-Merah.jpg" alt="Gallery 3">
-            <img class="gallery-img" src="https://i.postimg.cc/DSMSLfc0/Baju-Merah.jpg" alt="Gallery 4">
-        </div>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">GALERI</div>
+      <h2 class="section-title">Kenangan Terindah</h2>
     </div>
+    <div class="gallery-grid">
+      <img class="gallery-img" src="https://i.postimg.cc/xXSxYYmj/Baju-Hitam.jpg" alt="prewedding 1">
+      <img class="gallery-img" src="https://i.postimg.cc/hXqyggm9/Baju-Hitam.jpg" alt="prewedding 2">
+      <img class="gallery-img" src="https://i.postimg.cc/FYBY3FxK/Baju-Merah.jpg" alt="prewedding 3">
+      <img class="gallery-img" src="https://i.postimg.cc/DSMSLfc0/Baju-Merah.jpg" alt="prewedding 4">
+    </div>
+  </div>
 </section>
 
 <!-- RSVP + Guestbook -->
 <section class="section">
-    <div class="container">
-        <div class="section-header">
-            <div class="section-tag">RESPON & DOA</div>
-            <h2 class="section-title">Konfirmasi & Ucapan</h2>
-        </div>
-        <div class="double-form">
-            <div class="form-card">
-                <h3><i class="fas fa-check-circle"></i> Konfirmasi Hadir</h3>
-                <input type="text" id="rsvpName" placeholder="Nama lengkap">
-                <select id="rsvpStatus">
-                    <option value="">Pilih Kehadiran</option>
-                    <option value="Hadir">✅ Hadir</option>
-                    <option value="Tidak Hadir">❌ Tidak Hadir</option>
-                    <option value="Ragu">🤔 Masih Ragu</option>
-                </select>
-                <input type="number" id="rsvpTotal" placeholder="Jumlah tamu">
-                <button class="btn-elegant" id="sendRsvpBtn">Kirim Konfirmasi</button>
-            </div>
-            <div class="form-card">
-                <h3><i class="fas fa-heart"></i> Kirim Ucapan & Doa</h3>
-                <input type="text" id="guestNameInput" placeholder="Nama anda">
-                <textarea id="guestMsgInput" rows="3" placeholder="Tulis ucapan pernikahan..."></textarea>
-                <button class="btn-elegant" id="sendGuestBtn">Kirim Ucapan</button>
-            </div>
-        </div>
-        <div class="guestbook-list" id="guestbookArea">
-            <div class="guest-item"><div class="guest-name">Contoh Ucapan</div> Selamat menikah, semoga menjadi keluarga sakinah 🤍</div>
-        </div>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">RESPON & DOA</div>
+      <h2 class="section-title">Konfirmasi & Ucapan</h2>
     </div>
+    <div class="double-form">
+      <div class="glass-card form-card">
+        <h3><i class="fas fa-check-circle"></i> Konfirmasi Hadir</h3>
+        <input type="text" id="rsvpName" placeholder="Nama lengkap">
+        <select id="rsvpAttendance">
+          <option value="">Pilih kehadiran</option>
+          <option value="Hadir">✅ Hadir</option>
+          <option value="Tidak Hadir">❌ Tidak hadir</option>
+          <option value="Ragu">🤔 Masih ragu</option>
+        </select>
+        <input type="number" id="rsvpGuests" placeholder="Jumlah tamu">
+        <button class="btn-elegant" id="sendRSVP">Kirim Konfirmasi</button>
+      </div>
+      <div class="glass-card form-card">
+        <h3><i class="fas fa-heart"></i> Kirim Ucapan & Doa</h3>
+        <input type="text" id="guestName" placeholder="Nama anda">
+        <textarea id="guestMessage" rows="3" placeholder="Tulis ucapan pernikahan..."></textarea>
+        <button class="btn-elegant" id="sendGuest">Kirim Ucapan</button>
+      </div>
+    </div>
+    <div class="guestbook-list" id="guestbookList">
+      <div class="guest-item"><div class="guest-name">✨ Selamat</div> Semoga menjadi keluarga yang sakinah, penuh cinta 🤍</div>
+    </div>
+  </div>
 </section>
 
 <!-- Amplop Digital -->
 <section class="section">
-    <div class="container">
-        <div class="simple-card">
-            <i class="fas fa-gift" style="font-size: 2rem; color:#9e8b6f; margin-bottom: 12px;"></i>
-            <h3 style="font-size: 1.4rem; font-weight: 400;">Amplop Digital</h3>
-            <div class="donation-number" id="danaNumber">089506446413</div>
-            <button class="btn-elegant" id="copyDana" style="width: auto; padding: 8px 28px;">Salin Nomor</button>
-            <p style="margin-top: 28px; font-size: 0.7rem;">Terima kasih atas doa & dukungan Anda</p>
-        </div>
+  <div class="container">
+    <div class="glass-card simple-card">
+      <i class="fas fa-gift" style="font-size: 2rem; color:#C98C9E;"></i>
+      <h3 style="font-size:1.4rem; margin-top: 12px;">Amplop Digital</h3>
+      <div class="donation-number" id="danaNumber">089506446413</div>
+      <button class="btn-elegant" id="copyDonation" style="width: auto; padding: 8px 32px;">Salin Nomor</button>
+      <p style="margin-top: 28px; font-size:0.7rem;">Kirim hadiah pernikahan via Dana / transfer</p>
     </div>
+  </div>
 </section>
 
 <!-- Live Streaming -->
 <section class="section">
-    <div class="container">
-        <div class="simple-card">
-            <i class="fas fa-video" style="font-size: 2rem; color:#9e8b6f;"></i>
-            <h3 style="margin-top: 12px;">Live Streaming</h3>
-            <p style="margin: 12px 0;">Saksikan dari manapun</p>
-            <button class="btn-elegant" id="liveBtn" style="width: auto; margin-top: 12px; padding: 10px 32px;">🔴 Akses Live</button>
-            <div style="margin-top: 18px; font-size:0.65rem;">Link aktif pada hari H</div>
-        </div>
+  <div class="container">
+    <div class="glass-card simple-card">
+      <i class="fas fa-video" style="font-size: 2rem; color:#D6A77A;"></i>
+      <h3 style="margin-top: 12px;">Live Streaming</h3>
+      <p style="margin: 12px 0;">Saksikan momen bahagia dari mana saja</p>
+      <button class="btn-elegant" id="liveStreamBtn" style="width: auto; margin-top: 8px;">🔴 Akses Live</button>
+      <div style="margin-top: 20px; font-size:0.65rem;">Link akan aktif pada hari H</div>
     </div>
+  </div>
 </section>
 
 <footer>
-    © 2026 Resa & Delia — Terima kasih atas doa restu
+  © 2026 Resa & Delia — Terima kasih atas doa restu
 </footer>
 
 <div id="mapModal" class="modal-map">
-    <div class="modal-inner">
-        <span class="close-modal" onclick="closeMapModal()">&times;</span>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521259885845!2d106.828561!3d-6.200000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMDAuMCJTIDEwNsKwNDknNDIuMCJF!5e0!3m2!1sid!2sid!4v1690000000000!5m2!1sid!2sid" allowfullscreen></iframe>
-    </div>
+  <div class="modal-inner">
+    <span class="close-modal" onclick="closeMapModal()">&times;</span>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521259885845!2d106.828561!3d-6.200000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMDAuMCJTIDEwNsKwNDknNDIuMCJF!5e0!3m2!1sid!2sid!4v1690000000000!5m2!1sid!2sid" allowfullscreen></iframe>
+  </div>
 </div>
 
-<div id="toastMessage" class="toast-notif">Tersalin</div>
+<div id="toastMsg" class="toast">Tersalin</div>
 
 <script>
-    (function(){
-        // COUNTDOWN 12 JULY 2026
-        function updateWeddingCountdown() {
-            const targetDate = new Date(2026, 6, 12, 9, 0, 0).getTime();
-            const now = Date.now();
-            const diff = targetDate - now;
-            if(diff <= 0) {
-                document.getElementById('cdDays').innerText = '00';
-                document.getElementById('cdHours').innerText = '00';
-                document.getElementById('cdMinutes').innerText = '00';
-                document.getElementById('cdSeconds').innerText = '00';
-                return;
-            }
-            const days = Math.floor(diff/(1000*60*60*24));
-            const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-            const mins = Math.floor((diff%(1000*60*60))/(1000*60));
-            const secs = Math.floor((diff%(1000*60))/1000);
-            document.getElementById('cdDays').innerText = days.toString().padStart(2,'0');
-            document.getElementById('cdHours').innerText = hours.toString().padStart(2,'0');
-            document.getElementById('cdMinutes').innerText = mins.toString().padStart(2,'0');
-            document.getElementById('cdSeconds').innerText = secs.toString().padStart(2,'0');
-        }
-        setInterval(updateWeddingCountdown, 1000);
-        updateWeddingCountdown();
+  // COUNTDOWN 12 JULI 2026
+  function updateCountdown() {
+    const weddingDate = new Date(2026, 6, 12, 9, 0, 0).getTime();
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+    if(distance < 0) {
+      document.getElementById('days').innerText = '00';
+      document.getElementById('hours').innerText = '00';
+      document.getElementById('minutes').innerText = '00';
+      document.getElementById('seconds').innerText = '00';
+      return;
+    }
+    const days = Math.floor(distance / (1000*60*60*24));
+    const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+    const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+    const seconds = Math.floor((distance % (1000*60)) / 1000);
+    document.getElementById('days').innerText = days.toString().padStart(2,'0');
+    document.getElementById('hours').innerText = hours.toString().padStart(2,'0');
+    document.getElementById('minutes').innerText = minutes.toString().padStart(2,'0');
+    document.getElementById('seconds').innerText = seconds.toString().padStart(2,'0');
+  }
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
 
-        // MUSIC TOGGLE
-        const musicBtn = document.getElementById('musicToggle');
-        const audioPlayer = document.getElementById('bgWedding');
-        let isMusicOn = false;
-        musicBtn.addEventListener('click', ()=>{
-            if(isMusicOn){
-                audioPlayer.pause();
-                musicBtn.classList.remove('playing');
-            } else {
-                audioPlayer.play().catch(e=>console.log);
-                musicBtn.classList.add('playing');
-            }
-            isMusicOn = !isMusicOn;
-        });
+  // MUSIC TOGGLE
+  const musicBtn = document.getElementById('musicToggle');
+  const audio = document.getElementById('bgMusic');
+  let isPlaying = false;
+  musicBtn.addEventListener('click', () => {
+    if(isPlaying) {
+      audio.pause();
+      musicBtn.classList.remove('playing');
+    } else {
+      audio.play().catch(e=>console.log);
+      musicBtn.classList.add('playing');
+    }
+    isPlaying = !isPlaying;
+  });
 
-        // TOAST
-        function showToastMessage(msg){
-            const toastEl = document.getElementById('toastMessage');
-            toastEl.innerText = msg;
-            toastEl.style.opacity = '1';
-            setTimeout(()=>{ toastEl.style.opacity = '0'; }, 2000);
-        }
+  // MAP MODAL
+  window.openMapModal = () => document.getElementById('mapModal').style.display = 'flex';
+  window.closeMapModal = () => document.getElementById('mapModal').style.display = 'none';
 
-        // MAP MODAL
-        window.openMapModal = function() {
-            document.getElementById('mapModal').style.display = 'flex';
-        };
-        window.closeMapModal = function() {
-            document.getElementById('mapModal').style.display = 'none';
-        };
+  // TOAST NOTIFICATION
+  function showToastMessage(msg) {
+    const toast = document.getElementById('toastMsg');
+    toast.innerText = msg;
+    toast.style.opacity = '1';
+    setTimeout(() => toast.style.opacity = '0', 2100);
+  }
 
-        // COPY DANA
-        document.getElementById('copyDana')?.addEventListener('click', ()=>{
-            navigator.clipboard.writeText('089506446413');
-            showToastMessage('Nomor Dana tersalin ✓');
-        });
+  // COPY DANA
+  document.getElementById('copyDonation')?.addEventListener('click', () => {
+    navigator.clipboard.writeText('089506446413');
+    showToastMessage('Nomor Dana tersalin ✓');
+  });
 
-        // GUESTBOOK STORAGE
-        let guestList = JSON.parse(localStorage.getItem('wedding_guestbook') || '[]');
-        function renderGuestbook(){
-            const container = document.getElementById('guestbookArea');
-            if(!container) return;
-            if(guestList.length === 0){
-                container.innerHTML = '<div class="guest-item"><div class="guest-name">✨</div> Jadilah yang pertama memberi doa ✨</div>';
-                return;
-            }
-            let items = '';
-            [...guestList].reverse().slice(0,15).forEach(g => {
-                items += `<div class="guest-item"><div class="guest-name">${escapeHtml(g.name)}</div> ${escapeHtml(g.message)}</div>`;
-            });
-            container.innerHTML = items;
-        }
-        function escapeHtml(str){
-            if(!str) return '';
-            return str.replace(/[&<>]/g, function(m){
-                if(m === '&') return '&amp;';
-                if(m === '<') return '&lt;';
-                if(m === '>') return '&gt;';
-                return m;
-            });
-        }
-        document.getElementById('sendGuestBtn')?.addEventListener('click', ()=>{
-            const name = document.getElementById('guestNameInput').value.trim();
-            const msg = document.getElementById('guestMsgInput').value.trim();
-            if(!name || !msg){
-                showToastMessage('Lengkapi nama & ucapan');
-                return;
-            }
-            guestList.unshift({name, message: msg, date: Date.now()});
-            if(guestList.length > 45) guestList = guestList.slice(0,45);
-            localStorage.setItem('wedding_guestbook', JSON.stringify(guestList));
-            renderGuestbook();
-            showToastMessage('Ucapan terkirim 💖');
-            document.getElementById('guestNameInput').value = '';
-            document.getElementById('guestMsgInput').value = '';
-        });
+  // GUESTBOOK (localStorage)
+  let guestbookData = JSON.parse(localStorage.getItem('weddingGuestbook') || '[]');
+  function renderGuestbook() {
+    const container = document.getElementById('guestbookList');
+    if(!container) return;
+    if(guestbookData.length === 0) {
+      container.innerHTML = '<div class="guest-item"><div class="guest-name">✨</div> Jadilah yang pertama memberi doa ✨</div>';
+      return;
+    }
+    let items = '';
+    [...guestbookData].reverse().slice(0,12).forEach(g => {
+      items += `<div class="guest-item"><div class="guest-name">${escapeHtml(g.name)}</div> ${escapeHtml(g.message)}</div>`;
+    });
+    container.innerHTML = items;
+  }
+  function escapeHtml(s) {
+    if(!s) return '';
+    return s.replace(/[&<>]/g, (m) => {
+      if(m === '&') return '&amp;';
+      if(m === '<') return '&lt;';
+      if(m === '>') return '&gt;';
+      return m;
+    });
+  }
+  document.getElementById('sendGuest')?.addEventListener('click', () => {
+    const name = document.getElementById('guestName').value.trim();
+    const msg = document.getElementById('guestMessage').value.trim();
+    if(!name || !msg) {
+      showToastMessage('Isi nama dan ucapan terlebih dahulu');
+      return;
+    }
+    guestbookData.unshift({ name, message: msg, date: Date.now() });
+    if(guestbookData.length > 45) guestbookData = guestbookData.slice(0,45);
+    localStorage.setItem('weddingGuestbook', JSON.stringify(guestbookData));
+    renderGuestbook();
+    showToastMessage('Ucapan terkirim 💖');
+    document.getElementById('guestName').value = '';
+    document.getElementById('guestMessage').value = '';
+  });
 
-        // RSVP LOCAL
-        document.getElementById('sendRsvpBtn')?.addEventListener('click', ()=>{
-            const nama = document.getElementById('rsvpName').value.trim();
-            const status = document.getElementById('rsvpStatus').value;
-            const tamu = document.getElementById('rsvpTotal').value;
-            if(!nama || !status){
-                showToastMessage('Isi nama dan konfirmasi');
-                return;
-            }
-            let rsvpDB = JSON.parse(localStorage.getItem('wedding_rsvp') || '[]');
-            rsvpDB.push({name: nama, status, guests: tamu, time: new Date().toISOString()});
-            localStorage.setItem('wedding_rsvp', JSON.stringify(rsvpDB));
-            showToastMessage('Konfirmasi tersimpan 🙏');
-            document.getElementById('rsvpName').value = '';
-            document.getElementById('rsvpStatus').value = '';
-            document.getElementById('rsvpTotal').value = '';
-        });
+  // RSVP local storage
+  document.getElementById('sendRSVP')?.addEventListener('click', () => {
+    const name = document.getElementById('rsvpName').value.trim();
+    const attendance = document.getElementById('rsvpAttendance').value;
+    const totalGuests = document.getElementById('rsvpGuests').value;
+    if(!name || !attendance) {
+      showToastMessage('Lengkapi nama dan konfirmasi kehadiran');
+      return;
+    }
+    let rsvpDB = JSON.parse(localStorage.getItem('weddingRSVP') || '[]');
+    rsvpDB.push({ name, attendance, totalGuests, date: new Date().toISOString() });
+    localStorage.setItem('weddingRSVP', JSON.stringify(rsvpDB));
+    showToastMessage('Konfirmasi terkirim 🙏');
+    document.getElementById('rsvpName').value = '';
+    document.getElementById('rsvpAttendance').value = '';
+    document.getElementById('rsvpGuests').value = '';
+  });
 
-        document.getElementById('liveBtn')?.addEventListener('click', (e)=>{
-            e.preventDefault();
-            showToastMessage('Link live streaming akan diinfokan mendekati hari H');
-        });
+  document.getElementById('liveStreamBtn')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    showToastMessage('Link live streaming akan diinfokan mendekati hari H');
+  });
 
-        renderGuestbook();
-    })();
+  renderGuestbook();
 </script>
 </body>
 </html>
